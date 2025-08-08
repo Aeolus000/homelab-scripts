@@ -1,0 +1,19 @@
+---
+- name: Set hostname
+  hostname:
+    name: "{{ hostname_prefix }}-{{ inventory_hostname_short}}"
+
+- name: Set timezone
+  timezone:
+    name: "{{ timezone }}"
+
+- name: Install baseline packages
+  package:
+    name: "{{ base_packages }}"
+    state: present
+
+- name: Enable and start chrony
+  service:
+    name: chronyd
+    state: started
+    enabled: true

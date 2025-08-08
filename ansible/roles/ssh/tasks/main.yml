@@ -1,0 +1,13 @@
+- name: Copy over base sshd_config
+  copy:
+    src: test
+    dest: /tmp
+
+- name: Add public key (maybe) for Ansible access
+  debug:
+    msg: "hello"
+
+- name: Restart SSH Service
+  service:
+    name: sshd
+    state: restarted

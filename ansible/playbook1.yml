@@ -1,0 +1,8 @@
+- name: test playbook
+  hosts: linux_vms
+  gather_facts: false
+  become: true
+  become_user: root
+
+  roles:
+    - ssh

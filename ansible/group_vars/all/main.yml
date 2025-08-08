@@ -1,0 +1,7 @@
+timezone: America/New_York
+base_packages:
+  - vim
+  - git
+  - curl
+  - wget
+  - chrony
