@@ -45,3 +45,18 @@ qm set 9000 --serial0 socket --vga serial0
 
 Turn this into a template that we can clone from later as a base:
 qm template 9000
+
+
+
+When you want to create an image from that clone, just run a line here on Proxmox:
+
+I've replaced specific information with mock variable names:
+
+qm clone 9000 $VMID --name $hostname
+qm set $VMID \
+  --ciuser $user \
+  --sshkey $SSHKeyPath \
+  --ipconfig0 ip=$IP,gw=$Gateway \
+  --nameserver $DNS \
+  --searchdomain haydenlab.local
+qm start $VMID
