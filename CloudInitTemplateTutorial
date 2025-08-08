@@ -5,10 +5,10 @@ Creating a cloud init template with AlmaLinux
 QCOW2 is here: 
 https://repo.almalinux.org/almalinux/9/cloud/x86_64/images/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2
 
-put this in:
+put this in on your proxmox node:
 /var/lib/vz/template/qcow
 
-on your proxmox node
+
 
 
 on proxmox, create a VM, give it everything besides a hard disk and CD:
