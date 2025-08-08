@@ -2,4 +2,7 @@
 oracle
 ubuntu
 mgmt
-TestOracle2
+
+
+[server_intro]
+oracle2 ansible_host=10.0.0.104 ansible_user=root ansible_port=22 ansible_ssh_private_key_file=~/.ssh/hcraigMGMTkey
