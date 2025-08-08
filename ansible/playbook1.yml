@@ -1,5 +1,5 @@
 - name: test playbook
-  hosts: linux_vms
+  hosts: server_intro
   gather_facts: false
   become: true
   become_user: root

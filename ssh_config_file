@@ -1,0 +1,24 @@
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/hcraigMGMTGithub
+	IdentitiesOnly yes
+
+
+Host proxmox1
+	HostName proxmox1
+	Port 22122
+	User root
+	IdentityFile ~/.ssh/id_ed25519_proxmox
+
+Host proxmox2
+        HostName proxmox2
+        Port 22122
+        User root
+	IdentityFile ~/.ssh/id_ed25519_proxmox
+
+Host proxmox3
+        HostName proxmox3
+        Port 22122
+        User root
+        IdentityFile ~/.ssh/id_ed25519_proxmox
