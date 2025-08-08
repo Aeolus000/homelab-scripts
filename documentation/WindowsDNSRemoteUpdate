@@ -1,0 +1,17 @@
+dnf install bind-utils krb5-workstation
+
+
+
+tkey query failed: GSSAPI error: Major = Unspecified GSS failure.  Minor code may provide more information, Minor = Ticket expired.
+
+
+
+kinit hcraig@HAYDENLAB.LOCAL
+
+
+
+server dc1.haydenlab.local
+zone haydenlab.local
+update add testvm1.haydenlab.local. 3600 A 10.0.0.123
+send
+EOF
