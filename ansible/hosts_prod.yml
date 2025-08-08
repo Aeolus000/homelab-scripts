@@ -3,6 +3,10 @@ oracle
 ubuntu
 mgmt
 
-
 [server_intro]
-oracle2 ansible_host=10.0.0.104 ansible_user=root ansible_port=22
+10.0.0.103 ansible_user=ansible
+
+[proxmox_nodes]
+proxmox1
+proxmox2
+proxmox3

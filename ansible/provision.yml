@@ -1,0 +1,7 @@
+- name: Provision VM on Proxmox
+  hosts: proxmox2
+  gather_facts: no
+  become: true
+
+  roles: 
+    - provision_to_proxmox

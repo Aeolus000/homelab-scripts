@@ -1,0 +1,9 @@
+- name: Copy Over Proxmox Provision Script
+  copy:
+    src: files/proxmox-provision.sh
+    dest: /root/
+    mode: '0755'
+
+- name: Run Provisioning Script (needs IP given)
+  command: /root/proxmox-provision.sh "{{ vm_ip }}"
+

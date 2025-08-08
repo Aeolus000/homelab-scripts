@@ -1,7 +1,7 @@
 - name: Copy over base sshd_config
   copy:
-    src: test
-    dest: /tmp
+    src: files/sshd_config
+    dest: /etc/ssh/sshd_config
 
 - name: Add public key (maybe) for Ansible access
   debug:
