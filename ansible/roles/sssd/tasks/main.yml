@@ -1,15 +1,39 @@
-- name: Install all needed packages to join domain
-  package:
-    name:
-      - adcli
+- name: Set package list for RedHat family
+  set_fact:
+    sssd_packages:
       - sssd
-      - sssd-ad
       - sssd-tools
+      - sssd-ad
+      - adcli
+      - oddjob
+      - oddjob-mkhomedir
+      - realmd
+      - samba-common-tools
+      - PackageKit
+  when: ansible_os_family == 'RedHat'
+
+- name: Set package list for Debian family
+  set_fact:
+    sssd_packages:
+      - sssd
+      - sssd-tools
+      - adcli
       - libnss-sss
       - libpam-sss
       - samba-common-bin
       - oddjob
       - oddjob-mkhomedir
       - packagekit
+  when: ansible_os_family == 'Debian'
+
+- name: Install required packages
+  package:
+    name: "{{ item }}"
     state: present
-  ignore_errors: true
+  loop: "{{ sssd_packages }}"
+  register: sssd_pkg_results
+  failed_when: false
+
+- name: join the realm
+  debug:
+    msg: "steps to join the realm here"

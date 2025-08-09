@@ -1,8 +1,8 @@
-- name: server introduction
+- name: Perform server introduction steps
   hosts: all
-  gather_facts: no
+  gather_facts: true
   become: true
-  become_user: root
+  become_method: sudo
 
   roles:
     - common

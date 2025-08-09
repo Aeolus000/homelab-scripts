@@ -11,3 +11,9 @@
   service:
     name: sshd
     state: restarted
+
+- name: Switch to the new SSH port for the remainder of the play
+  set_fact:
+    ansible_port: 22122
+
+- meta: reset_connection
