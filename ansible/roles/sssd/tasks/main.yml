@@ -1,0 +1,15 @@
+- name: Install all needed packages to join domain
+  package:
+    name:
+      - adcli
+      - sssd
+      - sssd-ad
+      - sssd-tools
+      - libnss-sss
+      - libpam-sss
+      - samba-common-bin
+      - oddjob
+      - oddjob-mkhomedir
+      - packagekit
+    state: present
+  ignore_errors: true

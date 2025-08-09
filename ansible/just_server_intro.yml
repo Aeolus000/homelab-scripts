@@ -1,0 +1,10 @@
+- name: server introduction
+  hosts: all
+  gather_facts: no
+  become: true
+  become_user: root
+
+  roles:
+    - common
+    - ssh
+    - sssd

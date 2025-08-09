@@ -1,7 +1,14 @@
-- name: Provision VM on Proxmox
-  hosts: proxmox2
+---
+- name: get free ip
+  hosts: dc
   gather_facts: no
-  become: true
+  tasks:
 
-  roles: 
-    - provision_to_proxmox
+    - name:
+      delegate_to: dc1.haydenlab.local
+      ansible.windows.win_shell: Get-DhcpServerv4FreeIPAddress -ComputerName "dc1.haydenlab.local" -ScopeID 10.0.0.100
+      register: VM_IP
+
+    - name: show IP
+      debug:
+        msg: "{{ VM_IP.stdout }}"

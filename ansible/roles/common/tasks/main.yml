@@ -1,19 +1,24 @@
----
-- name: Set hostname
-  hostname:
-    name: "{{ hostname_prefix }}-{{ inventory_hostname_short}}"
-
-- name: Set timezone
-  timezone:
-    name: "{{ timezone }}"
-
-- name: Install baseline packages
-  package:
-    name: "{{ base_packages }}"
-    state: present
+- name: Disable SELinux
+  ansible.posix.selinux:
+    state: disabled
 
 - name: Enable and start chrony
   service:
     name: chronyd
     state: started
     enabled: true
+
+- name: disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false
+  ignore_errors: true
+
+- name: reboot server and wait to finish
+  reboot:
+    reboot_timeout: 180
+
+- name: make sure we're good
+  debug:
+    msg: "We have rebooted!"
